@@ -26,6 +26,7 @@ USER node
 RUN curl -fsSL https://claude.ai/install.sh | bash
 
 # Bake in Claude config
+COPY --chown=node:node config/.claude.json /home/node/.claude.json
 COPY --chown=node:node config/settings.json /home/node/.claude/settings.json
 COPY --chown=node:node config/CLAUDE.md /home/node/.claude/CLAUDE.md
 
