@@ -1,6 +1,8 @@
 FROM node:20
 
-RUN curl -fL https://claude.ai/install.sh | bash
+USER node
+
+RUN curl -fsSL https://claude.ai/install.sh | bash
 
 WORKDIR /workspace
 
