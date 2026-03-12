@@ -21,6 +21,7 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
 
 # Set up non-root user
 USER node
+ENV PATH="/home/node/.local/bin:${PATH}"
 
 # Install Claude Code (native installer)
 RUN curl -fsSL https://claude.ai/install.sh | bash
@@ -28,9 +29,8 @@ RUN curl -fsSL https://claude.ai/install.sh | bash
 # Bake in Claude config
 COPY --chown=node:node config/.claude.json /home/node/.claude.json
 COPY --chown=node:node config/settings.json /home/node/.claude/settings.json
-COPY --chown=node:node config/CLAUDE.md /home/node/.claude/CLAUDE.md
 
 WORKDIR /workspace
 
-ENTRYPOINT ["/home/node/.local/bin/claude"]
+ENTRYPOINT ["claude"]
 CMD ["--dangerously-skip-permissions"]
