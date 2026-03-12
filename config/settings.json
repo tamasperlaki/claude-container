@@ -10,5 +10,6 @@
     "pr": ""
   },
   "model": "opus[1m]",
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "skipDangerousModePermissionPrompt": true
 }

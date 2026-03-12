@@ -1,5 +1,16 @@
 {
   "installMethod": "native",
   "autoUpdates": false,
-  "hasCompletedOnboarding": true
+  "hasCompletedOnboarding": true,
+  "customApiKeyResponses": {
+    "approved": [
+      "pGE9WTPNkwQ-NJgSYAAA"
+    ],
+    "rejected": []
+  },
+  "projects": {
+    "/workspace": {
+      "hasTrustDialogAccepted": true
+    }
+  }
 }
