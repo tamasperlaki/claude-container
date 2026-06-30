@@ -1,10 +1,8 @@
 #!/bin/bash
 set -e
 
-GH_TOKEN="$(gh auth token)"
-
 docker run -it \
-  -e GH_TOKEN="$GH_TOKEN" \
+  -e GH_TOKEN="$(gh auth token)" \
   -v ~/.claude/.credentials.json:/home/node/.claude/.credentials.json:ro \
   -v ~/.claude/remote-settings.json:/home/node/.claude/remote-settings.json:ro \
   -v $(pwd):/workspace \
