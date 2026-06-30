@@ -8,6 +8,7 @@ docker run -it \
   -v ~/.claude/.credentials.json:/home/node/.claude/.credentials.json:ro \
   -v $(pwd):/workspace \
   -v ~/.config/git:/home/node/.config/git:ro \
+  -v ~/.ssh:/home/tperlaki/.ssh:ro \
   -v ~/Projects:/home/node/Projects \
   --network host \
   claude-container
