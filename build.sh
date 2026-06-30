@@ -2,4 +2,4 @@
 
 set -e
 
-docker build . -t claude-container
+docker build --network=host . -t claude-container
