@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-#: "${GH_TOKEN:?Set GH_TOKEN to a GitHub personal access token}"
+GH_TOKEN="$(gh auth token)"
 
 docker run -it \
   -e GH_TOKEN="$GH_TOKEN" \
