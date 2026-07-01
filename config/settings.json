@@ -9,7 +9,31 @@
     "commit": "",
     "pr": ""
   },
-  "model": "opus[1m]",
+  "model": "opusplan",
   "alwaysThinkingEnabled": true,
-  "skipDangerousModePermissionPrompt": true
+  "effortLevel": "high",
+  "tui": "default",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "extraKnownMarketplaces": {
+    "meltwater-agents": {
+      "source": {
+        "source": "github",
+        "repo": "meltwater/agents"
+      }
+    },
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "coralogix-querying@meltwater-agents": true,
+    "caveman@caveman": true
+  }
 }
