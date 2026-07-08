@@ -30,6 +30,8 @@ RUN curl -fsSL https://claude.ai/install.sh | bash
 COPY --chown=node:node config/.claude.json /home/node/.claude.json
 COPY --chown=node:node config/settings.json /home/node/.claude/settings.json
 
+RUN curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash
+
 WORKDIR /workspace
 
 ENTRYPOINT ["claude"]
