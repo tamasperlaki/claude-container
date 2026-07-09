@@ -27,6 +27,11 @@ Three layers combine to produce a working containerized Claude Code:
    - `~/.claude/.credentials.json` (auth), `~/.claude/remote-settings.json` (mounted read-only to skip the managed-settings approval prompt), `~/.claude/statusline.sh` (the script the baked `statusLine` setting invokes — the setting lives in the image, but the script is mounted from the host).
    - `$(pwd)` → `/workspace` (the project Claude operates on), plus `~/Projects` and `~/.config/git`.
    - `GH_TOKEN` is passed via `-e GH_TOKEN="$(gh auth token)"` — sourced live from the host's `gh` login rather than baked in.
+   - `CORALOGIX_API_KEY` is passed via `-e`, extracted live from the host's `~/.claude.json` (`mcpServers.coralogix.headers.Authorization`) — same live-sourcing pattern as `GH_TOKEN`, keeps the token out of the image.
+
+## MCP servers
+
+`config/.claude.json` bakes in the `mcpServers` block (server URL/type — no secrets). The `coralogix` server's `Authorization` header uses `${CORALOGIX_API_KEY}` expansion, which requires `httpHookAllowedEnvVars: ["CORALOGIX_API_KEY"]` in `config/settings.json` (Claude Code blocks env expansion in MCP headers unless allowlisted). The actual token is supplied at runtime by `start.sh` (see above) — never hardcode it in `config/`.
 
 **Rule of thumb:** durable defaults (tools, onboarding, settings) live in the image and need `./build.sh`; secrets and per-run state are mounted in `start.sh` and take effect on the next run.
 

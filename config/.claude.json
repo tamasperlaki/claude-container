@@ -12,5 +12,14 @@
     "/workspace": {
       "hasTrustDialogAccepted": true
     }
+  },
+  "mcpServers": {
+    "coralogix": {
+      "type": "http",
+      "url": "https://api.eu1.coralogix.com/mgmt/api/v1/mcp",
+      "headers": {
+        "Authorization": "Bearer ${CORALOGIX_API_KEY}"
+      }
+    }
   }
 }

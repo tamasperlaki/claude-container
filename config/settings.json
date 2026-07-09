@@ -18,7 +18,20 @@
     "type": "command",
     "command": "~/.claude/statusline.sh"
   },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notify-send 'Claude has finished'"
+          }
+        ]
+      }
+    ]
+  },
   "skipDangerousModePermissionPrompt": true,
+  "httpHookAllowedEnvVars": ["CORALOGIX_API_KEY"],
   "extraKnownMarketplaces": {
     "meltwater-agents": {
       "source": {
